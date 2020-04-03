@@ -59,25 +59,56 @@ left: 0;
 opacity: 0.9;
 }
 .foodnav .nav{
-    background-color:#F2F3F4 ;
-    border-bottom: 1px solid #5DADE2;
+background-color:#F2F3F4 ;
+border-bottom: 1px solid #5DADE2;
 }
 .foodnav a{
-    color: #5DADE2;
-    font-weight: bold;
+color: #5DADE2;
+font-weight: bold;
 }
 .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
-    color: #5DADE2;
-    background-color: #fff;
-    border-color: #5DADE2 #5DADE2 #fff;
+color: #5DADE2;
+background-color: #fff;
+border-color: #5DADE2 #5DADE2 #fff;
 }
 .nav-tabs .nav-link:hover{
-     border-color: #5DADE2 #5DADE2 #5DADE2;
+border-color: #5DADE2 #5DADE2 #5DADE2;
 }
 .nav-tabs .nav-link:focus{
-     border-color: #5DADE2 #5DADE2 #fff;
+border-color: #5DADE2 #5DADE2 #fff;
 }
+
+.card .cardcontent .portfolio-links:hover{
+opacity: 1;
+}
+.card .cardcontent .portfolio-links a:hover{
+color: #fff;
+background: #009cea;
+}
+.card .cardcontent .portfolio-links{
+opacity: 1;
+left: 0;
+right: 0;
+bottom: -10%;
+text-align: center;
+z-index: 3;
+position: relative;
+}
+.card .cardcontent .portfolio-links a{
+color: #009cea;
+margin: 0 2px;
+font-size: 24px;
+display: inline-block;
+transition: 0.3s;
+background: #eaf8ff;
+border-radius: 50px;
+line-height: 0;
+padding: 6px;
+}
+
 {% endblock %}
+
+
 {% block body %}
 {% load static %}
 <br>
@@ -98,12 +129,12 @@ opacity: 0.9;
         </div>
     </div>
 </section><!-- End Portfolio Details Section -->
-<section>
-    <div class="container">
+<section class="section">
+    <div class="container"  data-aos="fade-up">
         <div class="row">
             <div class="col-md-12 p-2">
-                <p style="font-size:25px;"><b>Select Category</b></p>
-                <hr class="ml-1" width="200px" style="background: #627680; margin-top:-10px; height: 2px;">
+                <p style="font-size:25px; color:#627680;"><b>Select Category</b></p>
+                <hr width="200px" style="background: #627680; margin-top:-10px; margin-left: -2px; height: 2px;">
                 <nav class="foodnav">
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
                         <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Vegetarian</a>
@@ -136,10 +167,13 @@ opacity: 0.9;
                                                 <td>4 Box Tiffin </td>
                                             </tr>
                                         </table>
+                                        <div class="portfolio-links">
+                                            <a href="#" title="Book Now"><i class="bx bx-plus"></i></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                             <div class="col-md-4 col-sm-6 col-xs-12 my-2 d-flex justify-content-center">
+                            <div class="col-md-4 col-sm-6 col-xs-12 my-2 d-flex justify-content-center">
                                 <div class="card box">
                                     <div class="imgbx">
                                         <img src='{% static "food/image/food5.jpeg" %}' class="img-fluid" alt="card image">
@@ -160,10 +194,13 @@ opacity: 0.9;
                                                 <td>4 Box Tiffin </td>
                                             </tr>
                                         </table>
+                                        <div class="portfolio-links">
+                                            <a href="#" title="Book Now"><i class="bx bx-plus"></i></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                             <div class="col-md-4 col-sm-6 col-xs-12 my-2 d-flex justify-content-center">
+                            <div class="col-md-4 col-sm-6 col-xs-12 my-2 d-flex justify-content-center">
                                 <div class="card box">
                                     <div class="imgbx">
                                         <img src='{% static "food/image/food3.jpg" %}' class="img-fluid" alt="card image">
@@ -184,6 +221,9 @@ opacity: 0.9;
                                                 <td>4 Box Tiffin </td>
                                             </tr>
                                         </table>
+                                        <div class="portfolio-links">
+                                            <a href="#" title="Book Now"><i class="bx bx-plus"></i></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -212,13 +252,16 @@ opacity: 0.9;
                                                 <td>4 Box Tiffin </td>
                                             </tr>
                                         </table>
+                                        <div class="portfolio-links">
+                                            <a href="#" title="Book Now"><i class="bx bx-plus"></i></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-                         <div class="row">
+                        <div class="row">
                             <div class="col-md-4 col-sm-6 col-xs-12 my-2 d-flex justify-content-center">
                                 <div class="card box">
                                     <div class="imgbx">
@@ -240,10 +283,13 @@ opacity: 0.9;
                                                 <td>4 Box Tiffin </td>
                                             </tr>
                                         </table>
+                                        <div class="portfolio-links">
+                                            <a href="#" title="Book Now"><i class="bx bx-plus"></i></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                             <div class="col-md-4 col-sm-6 col-xs-12 my-2 d-flex justify-content-center">
+                            <div class="col-md-4 col-sm-6 col-xs-12 my-2 d-flex justify-content-center">
                                 <div class="card box">
                                     <div class="imgbx">
                                         <img src='{% static "food/image/food5.jpeg" %}' class="img-fluid" alt="card image">
@@ -264,10 +310,13 @@ opacity: 0.9;
                                                 <td>4 Box Tiffin </td>
                                             </tr>
                                         </table>
+                                        <div class="portfolio-links">
+                                            <a href="#" title="Book Now"><i class="bx bx-plus"></i></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                             <div class="col-md-4 col-sm-6 col-xs-12 my-2 d-flex justify-content-center">
+                            <div class="col-md-4 col-sm-6 col-xs-12 my-2 d-flex justify-content-center">
                                 <div class="card box">
                                     <div class="imgbx">
                                         <img src='{% static "food/image/food3.jpg" %}' class="img-fluid" alt="card image">
@@ -288,6 +337,9 @@ opacity: 0.9;
                                                 <td>4 Box Tiffin </td>
                                             </tr>
                                         </table>
+                                         <div class="portfolio-links">
+                                           <a href="#" title="Book Now"><i class="bx bx-plus"></i></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
