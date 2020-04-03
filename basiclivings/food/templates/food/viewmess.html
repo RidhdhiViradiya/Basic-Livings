@@ -71,8 +71,11 @@ opacity: 0.9;
     background-color: #fff;
     border-color: #5DADE2 #5DADE2 #fff;
 }
-.nav-tabs:hover{
-
+.nav-tabs .nav-link:hover{
+     border-color: #5DADE2 #5DADE2 #5DADE2;
+}
+.nav-tabs .nav-link:focus{
+     border-color: #5DADE2 #5DADE2 #fff;
 }
 {% endblock %}
 {% block body %}
@@ -82,7 +85,7 @@ opacity: 0.9;
     <div class="container">
         <div class="portfolio-details-container" data-aos="fade-up">
             <div class="owl-carousel portfolio-details-carousel">
-                <img src='{% static "food/image/mess1.jpg" %}' class="img-fluid" style="height: 400px" alt="mess">
+                <img src='{% static "food/image/mess1.jpg" %}' class="img-fluid" style="height: 470px" alt="mess">
             </div>
 
             <div class="portfolio-info">
@@ -99,7 +102,8 @@ opacity: 0.9;
     <div class="container">
         <div class="row">
             <div class="col-md-12 p-2">
-                <p style="margin-bottom:1px"><b>Select Category</b></p>
+                <p style="font-size:25px;"><b>Select Category</b></p>
+                <hr class="ml-1" width="200px" style="background: #627680; margin-top:-10px; height: 2px;">
                 <nav class="foodnav">
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
                         <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Vegetarian</a>
