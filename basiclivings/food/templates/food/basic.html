@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>{% block title %}{% endblock %}</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+<!--  <link href="assets/img/favicon.png" rel="icon">-->
+<!--  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">-->
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href='{% static "food/css/bootstrap.css" %}' rel="stylesheet">
+  <link href='{% static "food/icons/icofont/icofont.min.css" %}' rel="stylesheet">
+  <link href='{% static "food/css/boxicons/boxicons.min.css" %}' rel="stylesheet">
+  <link href='{% static "food/css/venobox.css" %}' rel="stylesheet">
+  <link href='{% static "food/css/owl.carousel.min.css" %}' rel="stylesheet">
+  <link href='{% static "food/animations/css/aos.css" %}' rel="stylesheet">
+  <link href='{% static "food/icons/css/all.css" %}' rel="stylesheet">
+  <!-- Template Main CSS File -->
+  <link href='{% static "food/css/style.css" %}' rel="stylesheet">
+    {% block link %}{% endblock %}
+    <style>
+        {% block css %}{% endblock %}
+    </style>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex">
+
+      <div class="logo mr-auto">
+        <h1 class="text-light"><a href="index.html"><span>Basic - Livings</span></a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="#"><i class="fa fa-home"></i>&nbsp;Home</a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="container">
+      <div class="row d-flex justify-content-center">
+        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
+          <div class="text-center">
+		    <h1 style="font-size: 41px">Welcome to Basic - Livings</h1>
+            <h2>{% block hero %}{% endblock %}</h2>
+<!--            <a href="#about" class="btn-get-started scrollto text-center" style="width: 164px">Food</a>-->
+<!--			<a href="#about" class="btn-get-started scrollto">Paying Guest</a>-->
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+
+    <!-- ======= Services Section ======= -->
+
+    <!-- ======= Testimonials Section ======= -->
+
+    <!-- ======= Team Section ======= -->
+
+      {% block body %}{% endblock %}
+    <!-- ======= Contact Section ======= -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-info">
+              <h3>Basic - Livings</h3>
+              <p>
+               SDJ International College,<br> near Indian Diamond Institute, Someshwara Enclave, Vesu,<br> Surat, Gujarat 395007<br><br>
+                <strong>Phone:</strong> +91 6353693537<br>
+                <strong>Email:</strong> basiclivings@gmail.com<br>
+              </p>
+              <div class="social-links mt-3">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#hero">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#about">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="../#services">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#contact">Contact us</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Be a Food Vendor</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Be a PG Vendor</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Our Newsletter</h4>
+            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Basic-Livings</span></strong>. All Rights Reserved
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top"><i class="bx bxs-up-arrow-alt"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src='{% static "food/js/jquery.js" %}'></script>
+  <script src='{% static "food/js/popper.min.js" %}'></script>
+  <script src='{% static "food/js/bootstrap.bundle.min.js" %}'></script>
+  <script src='{% static "food/js/jquery.easing.min.js" %}'></script>
+  <script src='{% static "food/js/isotope.pkgd.min.js" %}'></script>
+  <script src='{% static "food/js/venobox.min.js" %}'></script>
+  <script src='{% static "food/js/owl.carousel.min.js" %}'></script>
+  <script src='{% static "food/animations/js/aos.js" %}'></script>
+
+  <!-- Template Main JS File -->
+  <script src='{% static "food/js/main.js" %}'></script>
+  {% block script %}{% endblock %}
+
+</body>
+
+</html>

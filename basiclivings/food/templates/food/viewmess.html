@@ -1,0 +1,297 @@
+{% extends 'food/basic.html' %}
+
+{% block title %}View Mess{% endblock %}
+{% block css %}
+#hero{
+display: none;
+}
+.vegimg img{
+height: 250px;
+width: 300px;
+}
+
+.box{
+position: relative;
+width: 300px;
+height: 400px;
+box-shadow: 0 0 10px 1px #333;
+}
+.box imgbx{
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+}
+
+.box .imgbx img{
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+<!--    object-fit: cover;-->
+transition: 0.5s;
+}
+.box:hover .imgbx img
+{
+background: rgba(0, 0, 0, 0.7);
+<!--    opacity: 0.9;-->
+}
+.box .cardcontent{
+position: absolute;
+bottom: 20px;
+left: 10%;
+width: 80%;
+height: 50px;
+background: #fff;
+transition: 0.5s;
+overflow: hidden;
+padding: 15px;
+box-sizing: border-box;
+}
+.box:hover .cardcontent
+{
+width: 100%;
+height: 100%;
+bottom: 0;
+left: 0;
+opacity: 0.9;
+}
+.foodnav .nav{
+    background-color:#F2F3F4 ;
+    border-bottom: 1px solid #5DADE2;
+}
+.foodnav a{
+    color: #5DADE2;
+    font-weight: bold;
+}
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+    color: #5DADE2;
+    background-color: #fff;
+    border-color: #5DADE2 #5DADE2 #fff;
+}
+.nav-tabs:hover{
+
+}
+{% endblock %}
+{% block body %}
+{% load static %}
+<br>
+<section id="portfolio-details" class="portfolio-details">
+    <div class="container">
+        <div class="portfolio-details-container" data-aos="fade-up">
+            <div class="owl-carousel portfolio-details-carousel">
+                <img src='{% static "food/image/mess1.jpg" %}' class="img-fluid" style="height: 400px" alt="mess">
+            </div>
+
+            <div class="portfolio-info">
+                <h3>PARIS BISTRO</h3>
+                <H6>Shubh Universal, Vesu Main Road, <br>Opp Vijaya Laxmi Hall, Vesu,<br> Surat, Gujarat 395007</H6>
+            </div>
+
+        </div>
+        <div class="portfolio-description">
+        </div>
+    </div>
+</section><!-- End Portfolio Details Section -->
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 p-2">
+                <p style="margin-bottom:1px"><b>Select Category</b></p>
+                <nav class="foodnav">
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Vegetarian</a>
+                        <a class="nav-item nav-link " id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Non Vegetarian</a>
+                        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Semi Vegetarian</a>
+                    </div>
+                </nav>
+                <br>
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active " id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-6 col-xs-12 my-2 d-flex justify-content-center">
+                                <div class="card box">
+                                    <div class="imgbx">
+                                        <img src='{% static "food/image/food2.jpg" %}' class="img-fluid" alt="card image">
+                                    </div>
+                                    <div class="cardcontent">
+                                        <h5 class="text-center">Full Dish(Lunch)</h5>
+                                        <table class="table">
+                                            <tr>
+                                                <td><b>Description</b></td>
+                                                <td><strong>Items:</strong> Roti, Daal, Fried Rice, Salad, Butter Milk</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Price</b></td>
+                                                <td>&#x20B9;70</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Tiffin Type</b></td>
+                                                <td>4 Box Tiffin </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="col-md-4 col-sm-6 col-xs-12 my-2 d-flex justify-content-center">
+                                <div class="card box">
+                                    <div class="imgbx">
+                                        <img src='{% static "food/image/food5.jpeg" %}' class="img-fluid" alt="card image">
+                                    </div>
+                                    <div class="cardcontent">
+                                        <h5 class="text-center">Full Dish(Dinner)</h5>
+                                        <table class="table">
+                                            <tr>
+                                                <td><b>Description</b></td>
+                                                <td><strong>Items:</strong> Roti, Daal, Fried Rice, Salad, Butter Milk</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Price</b></td>
+                                                <td>&#x20B9;70</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Tiffin Type</b></td>
+                                                <td>4 Box Tiffin </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="col-md-4 col-sm-6 col-xs-12 my-2 d-flex justify-content-center">
+                                <div class="card box">
+                                    <div class="imgbx">
+                                        <img src='{% static "food/image/food3.jpg" %}' class="img-fluid" alt="card image">
+                                    </div>
+                                    <div class="cardcontent">
+                                        <h5 class="text-center">Breakfast</h5>
+                                        <table class="table">
+                                            <tr>
+                                                <td><b>Description</b></td>
+                                                <td><strong>Items:</strong> Roti, Daal, Fried Rice, Salad, Butter Milk</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Price</b></td>
+                                                <td>&#x20B9;70</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Tiffin Type</b></td>
+                                                <td>4 Box Tiffin </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                <div class="card box">
+                                    <div class="imgbx">
+                                        <img src='{% static "food/image/food4.jpg" %}' class="img-fluid" alt="card image">
+                                    </div>
+                                    <div class="cardcontent">
+                                        <h5 class="text-center">Full Dish(Lunch)</h5>
+                                        <table class="table">
+                                            <tr>
+                                                <td><b>Description</b></td>
+                                                <td><strong>Items:</strong> Roti, Daal, Fried Rice, Salad, Butter Milk</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Price</b></td>
+                                                <td>&#x20B9;70</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Tiffin Type</b></td>
+                                                <td>4 Box Tiffin </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                         <div class="row">
+                            <div class="col-md-4 col-sm-6 col-xs-12 my-2 d-flex justify-content-center">
+                                <div class="card box">
+                                    <div class="imgbx">
+                                        <img src='{% static "food/image/food2.jpg" %}' class="img-fluid" alt="card image">
+                                    </div>
+                                    <div class="cardcontent">
+                                        <h5 class="text-center">Full Dish(Lunch)</h5>
+                                        <table class="table">
+                                            <tr>
+                                                <td><b>Description</b></td>
+                                                <td><strong>Items:</strong> Roti, Daal, Fried Rice, Salad, Butter Milk</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Price</b></td>
+                                                <td>&#x20B9;70</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Tiffin Type</b></td>
+                                                <td>4 Box Tiffin </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="col-md-4 col-sm-6 col-xs-12 my-2 d-flex justify-content-center">
+                                <div class="card box">
+                                    <div class="imgbx">
+                                        <img src='{% static "food/image/food5.jpeg" %}' class="img-fluid" alt="card image">
+                                    </div>
+                                    <div class="cardcontent">
+                                        <h5 class="text-center">Full Dish(Dinner)</h5>
+                                        <table class="table">
+                                            <tr>
+                                                <td><b>Description</b></td>
+                                                <td><strong>Items:</strong> Roti, Daal, Fried Rice, Salad, Butter Milk</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Price</b></td>
+                                                <td>&#x20B9;70</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Tiffin Type</b></td>
+                                                <td>4 Box Tiffin </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="col-md-4 col-sm-6 col-xs-12 my-2 d-flex justify-content-center">
+                                <div class="card box">
+                                    <div class="imgbx">
+                                        <img src='{% static "food/image/food3.jpg" %}' class="img-fluid" alt="card image">
+                                    </div>
+                                    <div class="cardcontent">
+                                        <h5 class="text-center">Breakfast</h5>
+                                        <table class="table">
+                                            <tr>
+                                                <td><b>Description</b></td>
+                                                <td><strong>Items:</strong> Roti, Daal, Fried Rice, Salad, Butter Milk</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Price</b></td>
+                                                <td>&#x20B9;70</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Tiffin Type</b></td>
+                                                <td>4 Box Tiffin </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
