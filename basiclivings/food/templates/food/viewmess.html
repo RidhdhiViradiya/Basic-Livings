@@ -168,7 +168,7 @@ padding: 6px;
                                             </tr>
                                         </table>
                                         <div class="portfolio-links">
-                                            <a href="#" title="Book Now"><i class="bx bx-plus"></i></a>
+                                            <a href="#apply" title="Book Now" data-toggle="modal"><i class="bx bx-plus"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -337,8 +337,8 @@ padding: 6px;
                                                 <td>4 Box Tiffin </td>
                                             </tr>
                                         </table>
-                                         <div class="portfolio-links">
-                                           <a href="#" title="Book Now"><i class="bx bx-plus"></i></a>
+                                        <div class="portfolio-links">
+                                            <a href="#" title="Book Now"><i class="bx bx-plus"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -350,4 +350,54 @@ padding: 6px;
         </div>
     </div>
 </section>
+
+<!--Modal Form-->
+<div class="modal fade" id="apply" tabindex="-1" role="dialog" aria-labelledby="applymodal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="applymodalTitle">Book Mess</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="form" action="#" name="bookmess" method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <input type="text" name="fnm" class="form-control form-control-sm" placeholder="Enter First Name"/>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <input type="text" name="lnm" class="form-control form-control-sm" placeholder="Enter Last Name"/>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <input type="tel" name="cno" class="form-control form-control-sm" placeholder="Enter Contact Number"/>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <input type="email" name="email" class="form-control form-control-sm" placeholder="Enter Email"/>
+                            </div>
+                        </div>
+                        <div class="col-md-8 offset-2 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <textarea class="form-control form-control-sm" rows="4">Enter Address</textarea>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-sm btn-primary">Book</button>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
