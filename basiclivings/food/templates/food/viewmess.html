@@ -105,9 +105,14 @@ border-radius: 50px;
 line-height: 0;
 padding: 6px;
 }
+.imghead{
+    opacity: 1;
+}
+.modal-header, .modal-footer{
+    background-color: #F2F3F4;
+}
 
 {% endblock %}
-
 
 {% block body %}
 {% load static %}
@@ -116,7 +121,7 @@ padding: 6px;
     <div class="container">
         <div class="portfolio-details-container" data-aos="fade-up">
             <div class="owl-carousel portfolio-details-carousel">
-                <img src='{% static "food/image/mess1.jpg" %}' class="img-fluid" style="height: 470px" alt="mess">
+                <img src='{% static "food/image/mess1.jpg" %}' class="img-fluid imghead" style="height: 470px;" alt="mess">
             </div>
 
             <div class="portfolio-info">
@@ -355,7 +360,7 @@ padding: 6px;
 <div class="modal fade" id="apply" tabindex="-1" role="dialog" aria-labelledby="applymodal" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header" >
                 <h5 class="modal-title" id="applymodalTitle">Book Mess</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>

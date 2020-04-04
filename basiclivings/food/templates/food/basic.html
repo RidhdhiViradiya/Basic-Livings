@@ -47,7 +47,7 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="#"><i class="fa fa-home"></i>&nbsp;Home</a></li>
+          <li class="active"><a href="../"><i class="fa fa-home"></i>&nbsp;Home</a></li>
         </ul>
       </nav><!-- .nav-menu -->
     </div>
@@ -57,9 +57,9 @@
   <section id="hero">
     <div class="container">
       <div class="row d-flex justify-content-center">
-        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
+        <div class="col-lg-6 pt-5 head pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
           <div class="text-center">
-		    <h1 style="font-size: 41px">Welcome to Basic - Livings</h1>
+		    <h1  style="font-size: 41px">Welcome to Basic - Livings</h1>
             <h2>{% block hero %}{% endblock %}</h2>
 <!--            <a href="#about" class="btn-get-started scrollto text-center" style="width: 164px">Food</a>-->
 <!--			<a href="#about" class="btn-get-started scrollto">Paying Guest</a>-->
@@ -98,38 +98,35 @@
               <p>
                SDJ International College,<br> near Indian Diamond Institute, Someshwara Enclave, Vesu,<br> Surat, Gujarat 395007<br><br>
                 <strong>Phone:</strong> +91 6353693537<br>
-                <strong>Email:</strong> basiclivings@gmail.com<br>
+                <strong>Email:</strong> basiclivings123@gmail.com<br>
               </p>
-              <div class="social-links mt-3">
-                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-              </div>
             </div>
           </div>
 
           <div class="col-lg-2 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#hero">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#about">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="../#hero">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="../#about">About us</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="../#services">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#contact">Contact us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="../#contact">Contact us</a></li>
             </ul>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Services</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Be a Food Vendor</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Be a PG Vendor</a></li>
-            </ul>
+             <h4>Let's Keep in Touch</h4>
+             <div class="social-links mt-3 ml-2">
+                <a href="https://twitter.com/home?lang=en" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="https://www.facebook.com/home.php?ref=wizard" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="https://www.instagram.com/?hl=en" class="instagram"><i class="bx bxl-instagram"></i></a>
+              </div>
           </div>
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Our Newsletter</h4>
             <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
             <form action="" method="post">
+              {% csrf_token %}
               <input type="email" name="email"><input type="submit" value="Subscribe">
             </form>
 
