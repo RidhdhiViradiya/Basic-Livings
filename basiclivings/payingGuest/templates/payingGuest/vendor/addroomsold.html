@@ -1,0 +1,358 @@
+{% extends 'payingGuest/vendor/basic.html' %}
+
+{% block title %}Add Rooms{% endblock %}
+{% block css %}
+
+input:focus{
+border: 2 px blur #013d4a;
+}
+
+.faicon{
+margin-top:-28px;
+color: #013d4a;
+font-size: 20px;
+padding-left: 10px;
+}
+.btnupd:hover, .btnupd:focus{box-shadow: 0px 0px 7px #013d4a; color: #1670f0;}
+.btnupd{
+color: #1670f0;
+padding: 10px 20px;
+font-size: 13px;
+border: 2px solid #1670f0;
+<!--    box-shadow: 0px 0px 7px #013d4a;-->
+background: #fff;
+font-weight: bold;
+}
+.btncan:hover, .btncan:focus{box-shadow: 0px 0px 7px red; color: red;}
+.btncan{
+color: red;
+padding: 10px 20px;
+font-size: 13px;
+border: 2px solid red;
+<!--    box-shadow: 0px 0px 7px red;-->
+background: white;
+font-weight: bold;
+}
+
+<!--.payment{ display: none; }-->
+.payment{ display: block; }
+
+{% endblock %}
+{% block body %}
+{% load static %}
+
+<!--<div class="row">-->
+<!--    <form action="#"  class="form md-form formstyle">-->
+<!--        {% csrf_token %}-->
+<!--        <div class="row">-->
+<!--            <div>-->
+<!--                <div class="form-group">-->
+<!--                    <label for="">{{Form.gender.label}}</label>-->
+<!--                    {{Form.gender}}-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--    </form>-->
+
+<!--</div>-->
+
+
+<div class="row ">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <p style="color: green;">{{message}}</p>
+        <form action="addrooms/submit" method="post" class="form md-form formstyle">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="Gender">Gender</label>
+                        <select class="form-control form-control-sm" id="gender" name="gender">
+                            <option selected disabled hidden>Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Others">Others</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="totalBeds">No of bed</label>
+                                <input type="number" name="totalBeds" class="form-control form-control-sm" id="totalBeds" max="6" min="1" >
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="vacantCount">No of vacant bed</label>
+                                <input type="number" name="vacantCount" class="form-control form-control-sm" id="vacantCount" min="1" >
+                            </div>
+                        </div>
+                        <div class="col-md-4 ">
+                            <div class="form-group">
+                                <label for="rent">Rent per bed</label>
+                                <input type="number" name="rentPerBed" class="form-control form-control-sm" id="rent" max="20000" min="1" >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="deposit">Deposit</label>
+                                <input type="number" name="deposit" class="form-control form-control-sm" id="deposit" min="1" max="50000">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="available">Available from</label>
+                                <input type="date" class="form-control form-control-sm" id="available" name="available">
+                            </div>
+                        </div>
+                        <!--                                    <div class="col-md-4">-->
+                        <!--                                        <div class="form-group">-->
+                        <!--                                            <label for="posted">Date posted</label>-->
+                        <!--                                            <input type="date" name="postedDate" class="form-control form-control-sm" id="posted" name="posted">-->
+                        <!--                                        </div>-->
+                        <!--                                    </div>-->
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="address">Address</label><br>
+                                <textarea class="form-control" name="address" id="address" rows="4" ></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="instruct">Special Instruction</label><br>
+                                <textarea class="form-control" name="instructions" id="instruct" rows="4"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="city">City</label>
+                            <select name="city" id="city" class="form-control form-control-sm" required  oninvalid="this.setCustomValidity('Please Select a valid City')">
+                                <option value="" disabled selected>--City--</option>
+                                {% for city in cities %}
+                                <option value='{{city.city_id}}'>{{city.city_name}}</option>
+                                {% endfor %}
+                                <!--// fetch data using DB-->
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="area">Area</label>
+                            <select class="form-control form-control-sm" id="area" name="area">
+
+                            </select>
+                        </div>
+
+                    </div><br>
+                    <div class="form-group">
+                        <label for="amenities">Amenities</label>
+                        <select  multiple class="form-control" id="amenities" name="amenities">
+                            <option disabled selected hidden>Select Amenities</option>
+                            <option>Food</option>
+                            <option>Occupacy</option>
+                            <option>Private</option>
+                            <option>Shared</option>
+                            <option>Furniture</option>
+                            <option>Sun Bear</option>
+                            <option>Polar Bear</option>
+                            <option>Spectacled Bear</option>
+                        </select>
+                    </div>
+                    <br>
+                    <div class="form-group d-flex justify-content-left">
+                        <input style="color: #013d4a; width: 130px;" type="submit" id="addroom" name="submit" value="Add Rooms" class="form-control btn blog-post_imgbtn  font-weight-bold">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <!-- Uploaded image area-->
+                    <div class="container imgstyle image-area mt-4">
+                        <img id="imageResult" src='{% static "payingGuest/image/logo.png" %}' alt="" class="img-fluid rounded mx-auto d-block">
+                    </div>
+                    <br>
+                    <!-- Upload image input-->
+                    <div class="input-group ml-5 mb-3 px-2 py-2 rounded-pill bg-black shadow-sm" style="width:400px;">
+                        <input id="upload" type="file" onchange="readURL(this);" class="form-control border-0">
+                        <label id="upload-label" for="upload" class="font-weight-bold text-muted">Choose file</label>
+                        <div class="input-group-append">
+                            <label for="upload" class="btn btn-light m-0 rounded-pill px-4"> <i class="fa fa-cloud-upload mr-2 mt-1 text-muted"></i><small class="text-uppercase font-weight-bold text-muted">Choose file</small></label>
+                        </div>
+                    </div>
+                    <div class="form-group form-inline d-flex justify-content-center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button class="btn btnupd" style="width: 120px">UPLOAD</button>&nbsp;&nbsp;
+                        <button class="btn  btncan" style="width: 120px">RESET</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row payment" id="payment">
+                <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-group">
+                        <label>Card Holder Name</label>
+                        <input type="text" class="form-control" style="padding-left:40px;" name="cholder">
+                        <i class="fa fa-user faicon" style="float: left"></i>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label>Card Number</label>
+                                <input type="text" class="form-control" style="padding-left:40px;" name="cnumber">
+                                <i class="fa fa-credit-card-alt faicon" style="float: left"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label>CVV/CVC</label>
+                                <input type="text" class="form-control" style="padding-left:40px;" name="cvv">
+                                <i class="fa fa-lock faicon" style="float: left"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label>Expiration Date</label>
+                                <input type="date" class="form-control"  style="padding-left:40px;" name="expdate">
+                                <i class="fa fa-calendar faicon" style="float: left"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label>Amount</label>
+                                <input type="NUMBER" class="form-control"  style="padding-left:40px;" name="amount">
+                                <i class="fa fa-money faicon" style="float: left"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input style="color: #013d4a; width: 130px;" class="form-control font-weight-bold btn blog-post_imgbtn" id="btn" type="submit" name="submitpay" value="Pay">
+                    </div>
+                </div>
+            </div>
+        </form>
+        <!--        <button style="color: #013d4a; width: 130px;" id="room"  class="btn blog-post_imgbtn  font-weight-bold">Add Room</button>-->
+    </div>
+</div>
+
+{% endblock %}
+{% block script %}
+<!--image uploader-->
+<script>
+/*  ==========================================
+    SHOW UPLOADED IMAGE
+* ========================================== */
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#imageResult')
+                .attr('src', e.target.result);
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$(function () {
+    $('#upload').on('change', function () {
+        readURL(input);
+    });
+});
+
+/*  ==========================================
+    SHOW UPLOADED IMAGE NAME
+* ========================================== */
+var input = document.getElementById( 'upload' );
+var infoArea = document.getElementById( 'upload-label' );
+
+input.addEventListener( 'change', showFileName );
+function showFileName( event ) {
+  var input = event.srcElement;
+  var fileName = input.files[0].name;
+  infoArea.textContent = 'File name: ' + fileName;
+}
+
+</script>
+
+<!--Harsh-->
+<script>
+
+
+$('#city').on('change', function(e){
+var id = $(this).val();
+e.preventDefault();
+$.ajax({
+    url: 'area',
+    type: 'POST',
+    data: {id: id,
+			csrfmiddlewaretoken: $("input[name=csrfmiddlewaretoken]").val()
+		},
+
+    success: function (data) {
+		var areas = JSON.parse(data);
+        console.log(areas);
+        var text;
+        if(areas.length==0){
+            text += `<option value="" hidden>----Not Available----</option>`;
+        }else{
+        text='<option value="" hidden>----Areas----</option>';
+            for(i=0; i<areas.length; i++){
+        	    text += `<option value='${areas[i][0]}'>${areas[i][1]}</option>`;
+            }
+        }
+		$('#area').html(text);
+
+		}
+});
+});
+
+
+</script>
+
+<script>
+    $('#totalBeds').on('change', function(e){
+    var count = $(this).val();
+        $('#vacantCount').attr("max", count);
+    } );
+</script>
+
+<script>
+
+    var d = new Date();
+    var today = d.getFullYear();
+    today += "-";
+    if ( d.getMonth()>=1 && d.getMonth()<=9 ){
+        today += "0";
+    }
+    today += d.getMonth() + "-" + d.getDate();
+    alert(today);
+    $('#available').on('mouseover', function(){
+        $(this).attr("min", today);
+    });
+</script>
+
+<script>
+    $('#amenities').on('change', function(){
+        console.log($(this).val());
+    });
+</script>
+<!--show hide payment-->
+<script type="text/javascript">
+    $(document).ready(function(){
+  $("#room").click(function(){
+    $(".payment").show();
+  });
+
+});
+</script>
+
+<script>
+    $(document).ready(function(){
+        $('#genderr').on('change', function(){
+            console.log("Hello harsh");
+        });
+    });
+</script>
+
+{% endblock %}

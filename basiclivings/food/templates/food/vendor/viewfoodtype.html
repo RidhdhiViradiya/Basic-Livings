@@ -1,0 +1,51 @@
+{% extends 'food/vendor/basic.html' %}
+
+{% block title %}View Food Types{% endblock %}
+
+{% block body %}
+{% load static %}
+<form class="form" action="#" method="post">
+    {% csrf_token %}
+    <div class="row text-center">
+        <div class="col-md-4 col-sm-12 col-xs-12 mb-3 d-flex justify-content-center">
+            <div class="card cd" style="width: 19rem;">
+                <img class="card-img-top" src='{% static "food/image/food.jpg" %}' height="180px" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Name</h5>
+                    <p class="card-text">Mess Name</p>
+                    <p class="card-text">Category</p>
+                    <p class="card-text">Food Type</p>
+                    <p class="card-text">Price</p>
+                    <a href="#" class="btn btn-primary">UPDATE</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-12 col-xs-12  mb-3 d-flex justify-content-center">
+            <div class="card cd" style="width: 19rem;">
+                <img class="card-img-top" src='{% static "food/image/food.jpg" %}' height="180px" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Name</h5>
+                    <p class="card-text">Mess Name</p>
+                    <p class="card-text">Category</p>
+                    <p class="card-text">Food Type</p>
+                    <p class="card-text">Price</p>
+                    <a href="#" class="btn btn-primary">UPDATE</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-12 col-xs-12  mb-3 d-flex justify-content-center">
+            <div class="card cd" style="width: 19rem;">
+                <img class="card-img-top" src='{% static "food/image/food.jpg" %}' height="180px" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Name</h5>
+                    <p class="card-text">Mess Name</p>
+                    <p class="card-text">Category</p>
+                    <p class="card-text">Food Type</p>
+                    <p class="card-text">Price</p>
+                    <a href="#" class="btn btn-primary">UPDATE</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}

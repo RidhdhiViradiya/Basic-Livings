@@ -1,0 +1,140 @@
+<!DOCTYPE html5>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	{% load static %}
+	    <link rel="stylesheet" href='{% static "accounts/css/bootstrap.css" %}'>
+	    <link rel="stylesheet" href='{% static "accounts/css/custom.css" %}'>
+		<link rel="stylesheet" href='{% static "accounts/icons/css/all.css" %}'>
+	    <link rel="stylesheet" href='{% static "accounts/icons/css/material-icons.min.css" %}'>
+		<script src='{% static "accounts/js/jquery.js" %}'></script>
+	    <script src='{% static "accounts/js/bootstrap.js" %}'></script>
+
+	<style>
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+    </style>
+</head>
+<body>
+<div class="container" id="container">
+
+	<div class="form-container sign-up-container">
+		<form action="register" method="post">
+
+			{% csrf_token %}
+			<h1>Create Account</h1>
+
+			<p style="color: red;">{{message}}</p>
+
+			<input type="text" placeholder="First Name" value="{{first_name}}" name="first_name" required oninvalid="this.setCustomValidity('Please Enter First Name')" />
+			<input type="text" placeholder="Last Name"  value="{{last_name}}"  name="last_name"  required  oninvalid="this.setCustomValidity('Please Enter Last Name')"/>
+			<select name="usertype" required  oninvalid="this.setCustomValidity('Please Select User Type')">
+				<option value="" disabled>--User Type--</option>
+				<option value="1">Student</option>
+				<option value="2" selected='{% if username == "2" %} selected {% endif %}' >Food Vendor</option>
+				<option value="3">Paying Guest Vendor</option>
+			</select>
+			<select name="gender"  required  oninvalid="this.setCustomValidity('Please Your Gender')">
+				<option value="" disabled>--Select Gender--</option>
+				<option value="Male">Male</option>
+				<option value="Female">Female</option>
+				<option value="Others">Others</option>
+			</select>
+			<input type="email" name="email" value="{{email}}"  placeholder="Email"  required  oninvalid="this.setCustomValidity('Please Enter a valid Email')">
+			<input type="password" name="password" placeholder="Password"  required  oninvalid="this.setCustomValidity('Please Enter the password')">
+			<input type="tel" name="phone" value="{{phone}}"  placeholder="Contact Number" pattern="[0-9]{10}"  required  oninvalid="this.setCustomValidity('Please Enter your contact number')">
+			<textarea name="address" id="address" cols="35" rows="5" placeholder="Enter Address"  required  oninvalid="this.setCustomValidity('Please Enter your address')">{{address}}</textarea>
+			<select name="city" required id="city" oninvalid="this.setCustomValidity('Please Select a valid City')">
+				<option disabled selected hidden>----City----</option>
+					{% for city in cities %}
+						<option value='{{city.city_id}}'>{{city.city_name}}</option>
+					{% endfor %}
+				// fetch data using DB
+			</select>
+
+			<select name="area" id="area" required oninvalid="this.setCustomValidity('Please Select a valid Area')">
+				<option disabled selected hidden>----Area----</option>
+			</select>
+			<button type="submit">Sign Up</button>
+
+		</form>
+	</div>
+
+	<div class="form-container sign-in-container">
+		<form action="login" method="post"><br>
+			<i class="fa fa-user-circle fa-6x" style="color:green"></i>
+			<h1>Sign in</h1>
+			<br>
+			{% for error in messages %}
+			<p style="color: red;">{{error}}</p>
+			{% endfor %}
+			{% csrf_token %}
+			<input type="email" placeholder="Email" name="email" required oninvalid="this.setCustomValidity('Please Enter a valid Email')"/>
+			<input type="password" placeholder="Password" name="password" required  oninvalid="this.setCustomValidity('Please Enter the password')" />
+			<a href="#">Forgot your password?</a>
+			<button type="submit">Sign In</button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1>Welcome Back!</h1>
+				<p>To keep connected with us please login with your personal info</p>
+				<button class="ghost" id="signIn">Sign In</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>Hello, Friend!</h1>
+				<p>Enter your personal details and start journey with us</p>
+				<button class="ghost" id="signUp">Sign Up</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+
+    const signUpButton = document.getElementById('signUp');
+const signInButton = document.getElementById('signIn');
+const container = document.getElementById('container');
+
+signUpButton.addEventListener('click', () => {
+	container.classList.add("right-panel-active");
+});
+
+signInButton.addEventListener('click', () => {
+	container.classList.remove("right-panel-active");
+});
+
+$('#city').on('change', function(e){
+var id = $(this).val();
+e.preventDefault();
+$.ajax({
+    url: 'area',
+    type: 'POST',
+    data: {id: id,
+			csrfmiddlewaretoken: $("input[name=csrfmiddlewaretoken]").val()
+		},
+
+    success: function (data) {
+		var areas = JSON.parse(data);
+        console.log(areas);
+        var text;
+        if(areas.length==0){
+            text += `<option value="" hidden>----Not Available----</option>`;
+        }else{
+        text='<option value="" hidden>----Areas----</option>';
+            for(i=0; i<areas.length; i++){
+        	    text += `<option value='${areas[i][0]}'>${areas[i][1]}</option>`;
+            }
+        }
+		$('#area').html(text);
+
+		}
+});
+});
+
+</script>
+</body>
+</html>

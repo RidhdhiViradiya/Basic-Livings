@@ -1,0 +1,273 @@
+{% extends 'payingGuest/vendor/basic.html' %}
+
+{% block title %}Manage Payment{% endblock %}
+
+{% block css %}
+.nav-item .nav-link:focus{ color: #1b7f9e !important;   }
+.nav-item .active .activelnk{ color: #1b7f9e !important;  }
+.nav-item .nav-link{color: #1b7f9e !important; }
+
+.custombtn{
+background-image: linear-gradient(to left, #10728c 0%,#88f3ed 100%);
+width: 150px;
+height: 50px;
+color:#013d4a;
+font-weight: 900;
+font-size: 21px;
+}
+.custombtn:hover{
+background-image: linear-gradient(to left, #5fe3dc 0%,#054252 100%);
+color:#013d4a;
+}
+.cardhead{
+padding: 10px 0px 10px 0px;
+background: #013d4a;
+color: white;
+font-weight: 500;
+}
+
+.faicon{
+margin-top:-28px;
+color: #013d4a;
+font-size: 20px;
+padding-left: 10px;
+}
+
+.btnpay{
+width: 100px;
+height: auto;
+background: transperant;
+border: 2px solid #013d4a;
+color: #013d4a;
+font-weight: bold;
+font-size: 20px;
+}
+.btnpay:hover, btnpay:focus{
+background-image: linear-gradient(to left, #10728c 0%,#88f3ed 100%);
+color:#013d4a;
+}
+input[type="radio"]{
+-webkit-appearance: none;
+display: none;
+}
+.radiolbl{
+height: 180px;
+width: 250px;
+border: 6px solid #013d4a;
+position: relative;
+margin: auto;
+border-radius: 10px;
+}
+.radiofa{
+font-size: 80px;
+color: #013d4a;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%,-80%);
+}
+.radiolbl span{
+color: #013d4a;
+position: absolute;
+top: 80%;
+left: 50%;
+transform: translate(-50%,-80%);
+font-weight: bold;
+}
+input[type="radio"]:checked + label {
+background-color: #8dccc8;
+}
+
+{% endblock %}
+
+{% block body %}
+{% load static %}
+<div class="container">
+    <div class="row">
+<!--  To get the id of the room      -->
+<!--        {{ request.GET.rid }}-->
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="main-card mb-3 card paymentcard">
+                <div class="card-body">
+                    <ul class="nav nav-tabs m-3 nav-justified navtabs">
+                        <li class="nav-item itemhover1"><a data-toggle="tab" href="#tab-eg11-2" class=" nav-link active "><b class="activelnk">Upgrade Date</b></a></li>
+                        <li class="nav-item itemhover1"><a data-toggle="tab" href="#tab-eg11-0" class=" nav-link "><b >Choose Method</b></a></li>
+                        <li class="nav-item itemhover2"><a data-toggle="tab" href="#tab-eg11-1" class="nav-link"><b>Enter Details</b></a></li>
+                    </ul>
+                    <div class="tab-content maincontent">
+                        <div class="tab-pane active" id="tab-eg11-2" role="tabpanel">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                        <div class="team-single">
+                                            <div class="content-area">
+                                                <div class="side-one">
+                                                    <div class="card cardplan">
+                                                        <div class="cardhead text-center">
+                                                            <h4>One Month Plan</h4>
+                                                        </div>
+                                                        <div class="card-body text-center d-flex justify-content-center">
+                                                            <div class="img-area ">
+                                                                <img  class="img-fluid" src='{% static "payingGuest/images/bg2.jpg" %}' alt="bg2.jpg">
+                                                            </div>
+                                                        </div>
+                                                        <div class="text-center"><p><b>300</b></p></div>
+                                                    </div>
+                                                </div>
+                                                <div class="side-two">
+                                                    <div class="card cardplan">
+                                                        <div class="card-body text-center mt-4">
+                                                            <h4>Ridhdhi</h4>
+                                                            <p>Ridhdhi ViradiyaRidhdhi ViradiyaRidhdhi ViradiyaRidhdhi Viradiya</p>
+                                                            <button class="btn blog-post_imgbtn font-weight-bold">Apply</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                        <div class="team-single">
+                                            <div class="content-area">
+                                                <div class="side-one">
+                                                    <div class="card cardplan">
+                                                        <div class="cardhead text-center">
+                                                            <h4>Six Months Plan</h4>
+                                                        </div>
+                                                        <div class="card-body text-center d-flex justify-content-center">
+                                                            <div class="img-area ">
+                                                                <img  class="img-fluid" src='{% static "payingGuest/images/bg2.jpg" %}' alt="bg2.jpg">
+                                                            </div>
+                                                        </div>
+                                                        <div class="text-center"><p><b>1500</b></p></div>
+                                                    </div>
+                                                </div>
+                                                <div class="side-two">
+                                                    <div class="card cardplan">
+                                                        <div class="card-body text-center mt-4">
+                                                            <h4>Ridhdhi</h4>
+                                                            <p>Ridhdhi ViradiyaRidhdhi ViradiyaRidhdhi ViradiyaRidhdhi Viradiya</p>
+                                                            <button class="btn blog-post_imgbtn font-weight-bold">Apply</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                         <div class="team-single">
+                                            <div class="content-area">
+                                                <div class="side-one">
+                                                    <div class="card cardplan">
+                                                         <div class="cardhead text-center">
+                                                                 <h4>One Year Plan</h4>
+                                                            </div>
+                                                        <div class="card-body text-center d-flex justify-content-center">
+                                                            <div class="img-area ">
+                                                                <img  class="img-fluid" src='{% static "payingGuest/images/bg2.jpg" %}' alt="bg2.jpg">
+                                                            </div>
+                                                        </div>
+                                                        <div class="text-center"><p><b>3400</b></p></div>
+                                                    </div>
+                                                </div>
+                                                <div class="side-two">
+                                                    <div class="card cardplan">
+                                                        <div class="card-body text-center mt-4">
+                                                            <h4>Ridhdhi</h4>
+                                                            <p>Ridhdhi ViradiyaRidhdhi ViradiyaRidhdhi ViradiyaRidhdhi Viradiya</p>
+                                                            <button class="btn blog-post_imgbtn font-weight-bold">Apply</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tab-eg11-0" role="tabpanel">
+                            <form method="post">
+                                {% csrf_token %}
+                                <div class="row text-center mt-5">
+                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                        <div class="form-group">
+                                            <input type="radio" class="form-control" name="credit" id="ccard">
+                                            <label for="ccard" class="radiolbl">
+                                                <i class="fa fa-credit-card radiofa" aria-hidden="true"></i>
+                                                <span>CREDIT CARD</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                        <div class="form-group">
+                                            <input type="radio" class="form-control" name="credit" id="dcard">
+                                            <label for="dcard" class="radiolbl">
+                                                <i class="fa fa-credit-card radiofa" aria-hidden="true"></i>
+                                                <span>DEBIT CARD</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="tab-pane" id="tab-eg11-1" role="tabpanel">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-3"></div>
+                                    <div class="col-md-6 col-sm-12 col-xs-12 d-flex justify-content-center">
+                                        <form method="post" action="#" class="form md-form">
+                                            {% csrf_token %}
+                                            <div class="form-group">
+                                                <label>CARD HOLDER NAME</label>
+                                                <input type="text" class="form-control" style="padding-left:40px;" name="cholder">
+                                                <i class="fa fa-user faicon" style="float: left"></i>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-8 col-sm-12 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label>CARD NUMBER</label>
+                                                        <input type="text" class="form-control" style="padding-left:40px;" name="cnumber">
+                                                        <i class="fa fa-credit-card-alt faicon" style="float: left"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-sm-12 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label>CVV/CVC</label>
+                                                        <input type="text" class="form-control" style="padding-left:40px;" name="cvv">
+                                                        <i class="fa fa-lock faicon" style="float: left"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 col-sm-12 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label>EXPIRATION DATE</label>
+                                                        <input type="date" class="form-control"  style="padding-left:40px;" name="expdate">
+                                                        <i class="fa fa-calendar faicon" style="float: left"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-sm-12 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label>AMOUNT</label>
+                                                        <input type="NUMBER" class="form-control"  style="padding-left:40px;" name="amount">
+                                                        <i class="fa fa-money faicon" style="float: left"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group d-flex justify-content-center">
+                                                <input class="form-control btn btnpay" id="btn" type="submit" name="submit" value="Pay">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-end mr-3"><button class="custombtn btn btn-lg">NEXT</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

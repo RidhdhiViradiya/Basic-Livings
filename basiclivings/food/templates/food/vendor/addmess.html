@@ -1,0 +1,113 @@
+{% extends 'food/vendor/basic.html' %}
+
+{% block title %}Add Mess{% endblock %}
+
+{% block body %}
+{% load static %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12  headblock">
+            <h1 class="text-center" style="color:white">ADD MESS</h1>
+             <hr class="bg-white" width="340px" style="height: 1px;margin-top:-6px">
+            <hr class="bg-white" width="340px" style="margin-top:-13px">
+        </div>
+    </div>
+    <form class="form md-form formstyle">
+        <div class="row ">
+            <div class="col-md-5 ml-5 pt-4 addmessform">
+                <div class="form-group">
+                    <label for="mname">Mess Name</label>
+                    <input type="text" class="form-control form-control-sm" id="mname" name="mname" />
+                </div>
+                <div class="form-group">
+                    <label for="madd">Address</label>
+                    <textarea  class="form-control form-control-sm" id="madd" name="madd" > </textarea>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <label for="city">City</label>
+                        <select name="city" id="city" class="form-control form-control-sm" required  oninvalid="this.setCustomValidity('Please Select a valid City')">
+                            <option value="" disabled selected>--City--</option>
+                            {% for city in cities %}
+                            <option value='{{city.city_id}}'>{{city.city_name}}</option>
+                            {% endfor %}
+                            <!--// fetch data using DB-->
+                        </select>
+                    </div>
+                     <div class="col-md-6 form-group">
+                        <label for="area">Area</label>
+                        <select  class="form-control form-control-sm" id="area" name="marea" >
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group d-flex justify-content-center">
+                    <input type="submit" class="btnsubmit" name="submit" value="ADD MESS">
+                    <input type="reset" class="btnreset ml-1" name="submit" value="RESET">
+                </div>
+            </div>
+            <div class="col-md-5 offset-1 pt-3 addmessform">
+                <!-- Uploaded image area-->
+                <div class="container imgstyle image-area mt-4">
+                    <img id="imageResult" src='{% static "payingGuest/image/logo.png" %}' alt="" class="img-fluid rounded mx-auto d-block">
+                </div>
+                <br>
+                <!-- Upload image input-->
+                <div class="input-group mb-3 px-2 py-2 rounded-pill bg-black shadow-sm" style="width:400px;">
+                    <input id="upload" type="file" onchange="readURL(this);" class="form-control border-0">
+                    <label id="upload-label" for="upload" class="font-weight-bold text-muted">Choose file</label>
+                    <div class="input-group-append">
+                        <label for="upload" class="btn btn-light m-0 rounded-pill px-4 pt-2"> <i class="fa fa-cloud-upload mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted">Choose file</small></label>
+                    </div>
+                </div>
+                <div class="form-group form-inline d-flex justify-content-center">&nbsp;
+                    <button class="btn font-weight-500 btncan" style="width: 120px">CENCEL</button>
+                </div>
+
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+
+{% block script %}
+{% load static %}
+<script>
+/*  ==========================================
+    SHOW UPLOADED IMAGE
+* ========================================== */
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#imageResult')
+                .attr('src', e.target.result);
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$(function () {
+    $('#upload').on('change', function () {
+        readURL(input);
+    });
+});
+
+/*  ==========================================
+    SHOW UPLOADED IMAGE NAME
+* ========================================== */
+var input = document.getElementById( 'upload' );
+var infoArea = document.getElementById( 'upload-label' );
+
+input.addEventListener( 'change', showFileName );
+function showFileName( event ) {
+  var input = event.srcElement;
+  var fileName = input.files[0].name;
+  infoArea.textContent = 'File name: ' + fileName;
+}
+
+</script>
+{% endblock %}

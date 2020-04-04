@@ -1,0 +1,97 @@
+{% extends 'food/vendor/basic.html' %}
+
+{% block title %}Manage Students{% endblock %}
+
+{% block css %}
+.tbl{
+box-shadow: 0px 0px 10px #031d4a;
+    border-radius: 4px;
+}
+.thead{
+background: #013d4a;
+color: white;
+}
+
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid bg-white">
+    <div class="row tbl">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="form-group mt-3">
+                <input type="text" class="form-control pl-5" name="search" id="search" placeholder="search student" onkeydown="searchfun()">
+                <i class="fas fa-search pl-3 border-left" style="margin-top:-26px;"></i>
+            </div>
+            <table class="table table-hover mt-2" id="myTable">
+                <thead class="thead" >
+                <tr>
+                    <th scope="col">Sr.</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Contact No.</th>
+                    <th scope="col">Remove</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Harsh Kawadia</td>
+                    <td>hkjain@gmail.com</td>
+                    <td>9874563212</td>
+                    <td style="padding-left:30px"><i class="fa fa-trash" style="color:red"></i></td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Anand 124</td>
+                    <td>aanand@gmail.com</td>
+                    <td>9298773212</td>
+                    <td style="padding-left:30px"><i class="fa fa-trash" style="color:red"></i></td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Ridhdhi Viradiya</td>
+                    <td>ridhdhi@gmail.com</td>
+                    <td>7896541232</td>
+                    <td style="padding-left:30px"><i class="fa fa-trash" style="color:red"></i></td>
+                </tr>
+                 <tr>
+                    <th scope="row">3</th>
+                    <td>Nandini Rana</td>
+                    <td>nandini@gmail.com</td>
+                    <td>7852341232</td>
+                    <td style="padding-left:30px"><i class="fa fa-trash" style="color:red"></i></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+        $('.table tbody').on('click', '.fa', function(){
+            $(this).closest('tr').remove();
+        });
+</script>
+<script>
+    const searchfun = () =>{
+    console.log('Search fun called');
+        let filter = document.getElementById('search').value.toUpperCase();
+        let myTable = document.getElementById('myTable');
+        let tr = myTable.getElementsByTagName('tr');
+        for(var i=0; i<tr.length; i++){
+        console.log('for loop enteredn');
+            let td = tr[i].getElementsByTagName('td')[0];
+            if(td){
+                let textvalue = td.textContent || td.innerHTML;
+                if(textvalue.toUpperCase().indexOf(filter) > -1){
+                    tr[1].style.display = "";
+                }else{
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
+{% endblock %}

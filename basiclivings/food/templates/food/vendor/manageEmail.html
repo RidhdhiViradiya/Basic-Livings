@@ -1,0 +1,110 @@
+{% extends 'food/vendor/basic.html' %}
+
+{% block title %}Manage Email{% endblock %}
+
+{% block css %}
+.tbl{
+box-shadow: 3px 3px 10px #031d4a;
+border-radius: 4px;
+}
+
+.thead{
+background: #013d4a;
+color: white;
+}
+.emailhead{
+padding: 20px 0px 20px 10px;
+background: #013d4a;
+margin: 0px -15px;
+color: white;
+font-weight: 500;
+}
+
+input[type=text], input[type=email], .textarea{
+border: 0;
+outline: 0;
+background: transparent;
+border-bottom: 1px solid #013d4a;
+border-radius: 0px;
+}
+
+input[type=text]:hover, .textarea:hover,  input[type=email]:hover, input[type=text]:focus,  input[type=email]:focus, .textarea:focus {
+border: 0;
+outline:0;
+border-bottom: 1px solid #013d4a;
+box-shadow: none;
+}
+.forminside{
+background: #fff;
+box-shadow: 0px 0px 10px #013d4a;
+}
+
+{% endblock %}
+
+{% block body %}
+{% load static %}
+<div class="container-fluid">
+<div class="row">
+    <div class="col-md-6 col-sm-12 col-xs-12">
+          <table class="table table-hover tbl bg-white">
+                <thead class="thead">
+                <tr>
+                    <th scope="col" title="Select All"><div class="custom-checkbox custom-control"><input type="checkbox" id="exampleCustomCheckbox4" class="custom-control-input"><label class="custom-control-label" for="exampleCustomCheckbox4"></label></div></th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Remove</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><div class="custom-checkbox custom-control"><input type="checkbox" id="exampleCustomCheckbox1" class="custom-control-input"><label class="custom-control-label" for="exampleCustomCheckbox1"></label></div></td>
+                    <td>hkjain@gmail.com</td>
+                    <td style="padding-left:30px"><i class="fa fa-trash" style="color:red"></i></td>
+                </tr>
+                <tr>
+                    <td><div class="custom-checkbox custom-control"><input type="checkbox" id="exampleCustomCheckbox2" class="custom-control-input"><label class="custom-control-label" for="exampleCustomCheckbox2"></label></div></td>
+                    <td>aanand@gmail.com</td>
+                    <td style="padding-left:30px"><i class="fa fa-trash" style="color:red"></i></td>
+                </tr>
+                <tr>
+                    <td><div class="custom-checkbox custom-control"><input type="checkbox" id="exampleCustomCheckbox3" class="custom-control-input"><label class="custom-control-label" for="exampleCustomCheckbox3"></label></div></td>
+                    <td>ridhdhi@gmail.com</td>
+                    <td style="padding-left:30px"><i class="fa fa-trash" style="color:red"></i></td>
+                </tr>
+                </tbody>
+            </table>
+    </div>
+    <div class="col-md-6 col-sm-12 col-xs-12 d-flex justify-content-center">
+        <form method="post" action="#" class="form">
+            {% csrf_token %}
+            <div class="row" style="font-size: 15px">
+                <div class="col-md-12 forminside">
+                    <h5 class="emailhead">Send Message</h5>
+                    <br>
+                    <div class="form-group justify-content-center">
+                        <input type="email" name="to" placeholder="To"  class="form-control" id="to"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="text"  name="sub" placeholder="Subject" class="form-control" id="sub"/>
+                    </div>
+                    <div class="form-group form-inline">
+                        <textarea name="Message" class="form-control textarea" placeholder="Message" rows="5" style="width: 430px;"></textarea>
+                    </div>
+                    <div class="form-group d-flex justify-content-left">
+                        <button class="form-control btn blog-post_imgbtn font-weight-bold pb-2" style=" width:100px; color:#013d4a;" type="submit">SEND</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+    </div>
+{% endblock %}
+{% block script %}
+<script>
+        $('.table tbody').on('click', '.fa', function(){
+            $(this).closest('tr').remove();
+        });
+</script>
+
+{% endblock %}
