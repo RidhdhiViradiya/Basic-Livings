@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>{% block title %}{% endblock %}</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+<!--  <link href="assets/img/favicon.png" rel="icon">-->
+<!--  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">-->
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href='{% static "payingGuest/css/bootstrap.css" %}' rel="stylesheet">
+  <link href='{% static "payingGuest/icons/icofont/icofont.min.css" %}' rel="stylesheet">
+  <link href='{% static "payingGuest/css/boxicons/boxicons.min.css" %}' rel="stylesheet">
+  <link href='{% static "payingGuest/css/venobox.css" %}' rel="stylesheet">
+  <link href='{% static "payingGuest/css/owl.carousel.min.css" %}' rel="stylesheet">
+  <link href='{% static "payingGuest/animations/css/aos.css" %}' rel="stylesheet">
+  <link href='{% static "payingGuest/icons/css/all.css" %}' rel="stylesheet">
+  <!-- Template Main CSS File -->
+  <link href='{% static "payingGuest/css/style.css" %}' rel="stylesheet">
+    {% block link %}{% endblock %}
+    <style>
+        {% block css %}{% endblock %}
+    </style>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex">
+
+      <div class="logo mr-auto">
+        <h1 class="text-light"><a href="index.html"><span>Basic - Livings</span></a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="../"><i class="fa fa-home"></i>&nbsp;Home</a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="container">
+      <div class="row d-flex justify-content-center">
+        <div class="col-lg-6 pt-5 head pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
+          <div class="text-center">
+		    <h1  style="font-size: 41px">Welcome to Basic - Livings</h1>
+            <h2>{% block hero %}{% endblock %}</h2>
+<!--            <a href="#about" class="btn-get-started scrollto text-center" style="width: 164px">payingGuest</a>-->
+<!--			<a href="#about" class="btn-get-started scrollto">Paying Guest</a>-->
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+  <main id="main">
+      {% block body %}{% endblock %}
+    <!-- ======= Contact Section ======= -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-info">
+              <h3>Basic - Livings</h3>
+              <p>
+               SDJ International College,<br> near Indian Diamond Institute, Someshwara Enclave, Vesu,<br> Surat, Gujarat 395007<br><br>
+                <strong>Phone:</strong> +91 6353693537<br>
+                <strong>Email:</strong> basiclivings123@gmail.com<br>
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="../#hero">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="../#about">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="../#services">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="../#contact">Contact us</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+             <h4>Let's Keep in Touch</h4>
+             <div class="social-links mt-3 ml-2">
+                <a href="https://twitter.com/home?lang=en" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="https://www.facebook.com/home.php?ref=wizard" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="https://www.instagram.com/?hl=en" class="instagram"><i class="bx bxl-instagram"></i></a>
+              </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Our Newsletter</h4>
+            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+            <form action="" method="post">
+              {% csrf_token %}
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Basic-Livings</span></strong>. All Rights Reserved
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top"><i class="bx bxs-up-arrow-alt"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src='{% static "payingGuest/js/jquery.min.js" %}'></script>
+  <script src='{% static "payingGuest/js/popper.min.js" %}'></script>
+  <script src='{% static "payingGuest/js/bootstrap.bundle.min.js" %}'></script>
+  <script src='{% static "payingGuest/js/jquery.easing.min.js" %}'></script>
+  <script src='{% static "payingGuest/js/isotope.pkgd.min.js" %}'></script>
+  <script src='{% static "payingGuest/js/venobox.min.js" %}'></script>
+  <script src='{% static "payingGuest/js/owl.carousel.min.js" %}'></script>
+  <script src='{% static "payingGuest/animations/js/aos.js" %}'></script>
+
+  <!-- Template Main JS File -->
+  <script src='{% static "payingGuest/js/main.js" %}'></script>
+  {% block script %}{% endblock %}
+
+</body>
+
+</html>
