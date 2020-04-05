@@ -683,7 +683,7 @@ section {
   position: relative;
   overflow: hidden;
   z-index: 1;
-    box-shadow: 8px 8px 20px 1px #2E4053 ;
+   box-shadow: 6px 6px 10px #000000;
   border-radius: 0.8rem
 }
 

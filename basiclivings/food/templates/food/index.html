@@ -2,16 +2,18 @@
 {% block title %}Food - Index{% endblock %}
 
 {% block link %}
+{% load static %}
 <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
-
 {% endblock %}
 
 {% block css %}
+
 .rangeslider{
 position: relative;
 padding-bottom: 10px;
 background: #fff;
 }
+
 .rupeelabel,
 #rangeValue{
 position: relative;
@@ -58,6 +60,21 @@ box-shadow: -407px 0 0 400px #359FC1;
 }
 .select2-container .select2-selection--single{
     height: 40px !important;
+}
+.btngo{
+background-color:#009cea;
+color:#fff;
+border-radius: 40%;
+width:50px;
+transition: 0.5s ease-in-out;
+opacity: 0.9;
+font-weight: 900;
+}
+.btngo:hover{
+    transform: scale(1.1, 1.1);
+    background: #fff;
+    color: #009cea;
+    box-shadow: 2px 2px 4px #000000;
 }
 
 {% endblock %}
@@ -128,7 +145,7 @@ We help you to easily fulfill your food requirement
                        onmousemove="rangeSlide(this.value)">
             </div>
             <div class="col-md-1 mt-4">
-                <button class="btn" style="background-color:#009cea;color:#fff; border-radius: 40%; width:50px">Go</button>
+                <button class="btn btngo" >Go</button>
             </div>
         </div>
     </form>
