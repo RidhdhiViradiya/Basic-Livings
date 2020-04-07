@@ -19,4 +19,8 @@ urlpatterns = [
     path('vendor/addrooms/submit', views.submitRoom, name="submit"),
     path('vendor/Add', views.Add, name="Add"),
 
+
+    path('viewpg', views.viewpg, name="viewpg"),
+    path('viewroom', views.viewroom, name="viewroom"),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -176,3 +176,10 @@ def submitRoom(request):
 def vendor_logout(request):
     auth.logout(request)
     return redirect('/')
+
+# Student Side
+def viewpg(request):
+    return render(request, 'payingGuest/viewpg.html')
+
+def viewroom(request):
+    return render(request, 'payingGuest/viewroom.html')
