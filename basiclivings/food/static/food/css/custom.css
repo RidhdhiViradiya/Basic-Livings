@@ -38,7 +38,7 @@ border-radius: 5px;
 }
 
 .cards .face .content a:hover, .card .face .content a:focus{
-     background-image: linear-gradient(to left, #5fe3dc 0%,#054252 100%);
+     background-image: linear-gradient(to left, #003690 0%,#a8edff 100%);
      color: #bbe3ed;
 }
 

@@ -70,5 +70,15 @@
                 </div>
             </div>
 <br>
+<button type="button" class="btn btn-lg btn-danger"  data-trigger="focus" data-toggle="popover" title="Popover title" data-content="And here's some amazing<b> content. </b>It's very engaging. Right?">Click to toggle popover</button>-->
+<br>
+{% endblock %}
+{% block script %}
+ <script>
+  jQuery.noConflict();
+  jQuery(document).ready(function($){
+      $("button").popover({html:true})
+}) ( jQuery );
+</script>
 {% endblock %}
       
