@@ -23,11 +23,10 @@
             .app-main .app-main__inner {
                 background-color: white !important;
             }
-            .listul .listli1{
-                width: 50px;
-            }
+            .listul .listli1{width: 50px}
             .listul .listli3{width: 20px}
             .listul .listli2{width: 80px}
+
         </style>
 
 
@@ -72,7 +71,7 @@
                             <div class="widget-content-left">
                                 <div class="btn-group">
                                     <a tabindex="0" class="btn p-3" role="button" data-trigger="focus" class="p-0 btn" data-toggle="popover" title="My Profile" data-placement="bottom" data-content='
-                                      <div class="container-fluid"  data-container="body">
+                                      <div class="container">
                                        <div class="row">
                                             <div class="col-md-12" >
                                             <ul class="list-inline listul" >
@@ -98,10 +97,8 @@
                                             </div>
                                         </div>
                                             </div>'>
-
-                                            <img width="42" class="rounded-circle" src='{% static "payingGuest/image/login3.png"%}' alt="Profile">
-                                            <i class="fa fa-angle-down ml-2 opacity-8"></i>
-
+                                        <img width="42" class="rounded-circle" src='{% static "payingGuest/image/login3.png"%}' alt="Profile">
+                                        <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                     </a>
                                 </div>
                             </div>
@@ -221,52 +218,6 @@
             <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
         </div>
     </div>
-    <!-- Modal my profile-->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header" style="background:#013d4a; color:white;" >
-                    <h5 class="modal-title" id="exampleModalLabel">My Profile</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true" style="color:white" >&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <table class="table">
-                        <tbody>
-                        <tr>
-                            <td><b>Name</b></td>
-                            <td>{{user.short_name}}</td>
-                            <td><i class="fa fa-pencil text-danger" title="Edit"></i></td>
-                        </tr>
-                        <tr>
-                            <td><b>Address</b></td>
-                            <td>{{user.get_address}}</td>
-                            <td><i class="fa fa-pencil text-danger" title="Edit"></i></td>
-                        </tr>
-                        <tr>
-                            <td><b>Mobile</b></td>
-                            <td>{{user.get_phone}}</td>
-                            <td><i class="fa fa-pencil text-danger" title="Edit"></i></td>
-                        </tr>
-                        <tr>
-                            <td><b>Gender</b></td>
-                            <td>{{user.get_gender}}</td>
-                            <td><i class="fa fa-pencil text-danger" title="Edit"></i></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="modal-footer" style="background:#013d4a; color:white;">
-                    <button type="button" class="btn btn-warning  font-weight-bold text-10" data-dismiss="modal">CLOSE</button>
-                </div>
-            </div>
-        </div>
-    </div>
     <!--forgot password-->
     <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -298,7 +249,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!--    popover.js-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src='{% static "payingGuest/animations/js/aos.js" %}'></script>
     <!--popover-->
