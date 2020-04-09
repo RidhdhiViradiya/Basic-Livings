@@ -23,6 +23,11 @@
             .app-main .app-main__inner {
                 background-color: white !important;
             }
+            .listul .listli1{
+                width: 50px;
+            }
+            .listul .listli3{width: 20px}
+            .listul .listli2{width: 80px}
         </style>
 
 
@@ -66,18 +71,38 @@
                         <div class="widget-content-wrapper">
                             <div class="widget-content-left">
                                 <div class="btn-group">
-                                    <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
-                                        <img width="42" class="rounded-circle" src='{% static "payingGuest/image/login3.png"%}' alt="Profile">
-                                        <i class="fa fa-angle-down ml-2 opacity-8"></i>
+                                    <a tabindex="0" class="btn p-3" role="button" data-trigger="focus" class="p-0 btn" data-toggle="popover" title="My Profile" data-placement="bottom" data-content='
+                                      <div class="container-fluid"  data-container="body">
+                                       <div class="row">
+                                            <div class="col-md-12" >
+                                            <ul class="list-inline listul" >
+                                                <li class="list-inline-item listli1">Name</li>
+                                                <li class="list-inline-item listli2">{{user.short_name}}</li>
+                                                <li class="list-inline-item listli3"><i class="fa fa-pencil text-danger"></i></li>
+                                            </ul>
+                                             <ul class="list-inline listul" >
+                                                <li class="list-inline-item listli1">Address</li>
+                                                <li class="list-inline-item listli2">{{user.get_address}}</li>
+                                                <li class="list-inline-item listli3"><i class="fa fa-pencil text-danger"></i></li>
+                                            </ul>
+                                             <ul class="list-inline listul" >
+                                                <li class="list-inline-item listli1">Mobile</li>
+                                                <li class="list-inline-item listli2">{{user.get_phone}}</li>
+                                                <li class="list-inline-item listli3"><i class="fa fa-pencil text-danger"></i></li>
+                                            </ul>
+                                            <ul class="list-inline listul" >
+                                                <li class="list-inline-item listli1">Gender</li>
+                                                <li class="list-inline-item listli2">{{user.get_gender}}</li>
+                                                <li class="list-inline-item listli3"><i class="fa fa-pencil text-danger"></i></li>
+                                            </ul>
+                                            </div>
+                                        </div>
+                                            </div>'>
+
+                                            <img width="42" class="rounded-circle" src='{% static "payingGuest/image/login3.png"%}' alt="Profile">
+                                            <i class="fa fa-angle-down ml-2 opacity-8"></i>
+
                                     </a>
-                                    <a data-toggle="dropdown"  data-toggle="popover" data-trigger="focus" title="Manage Profile" data-content="And here's some amazing<b> content. </b>It's very engaging. Right?">
-                                        <img width="42" class="rounded-circle" src='{% static "payingGuest/image/login3.png"%}' alt="Profile">
-                                    </a>
-                                    <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
-<!--                                        <button type="button" tabindex="0" class="dropdown-item"    class="btn" data-toggle="modal" data-target="#exampleModal">My Profile</button>-->
-                                        <button type="button" tabindex="0" class="dropdown-item btn" data-toggle="popover" data-trigger="focus" title="Manage Profile" data-content="And here's some amazing<b> content. </b>It's very engaging. Right?">My Profile</button>
-                                        <button type="button" class="btn btn-lg btn-danger"  data-trigger="focus" data-toggle="popover" title="Popover title" data-content="And here's some amazing<b> content. </b>It's very engaging. Right?">Click to toggle popover</button>
-                                    </div>
                                 </div>
                             </div>
                             <div class="widget-content-left  ml-3 header-user-info">
@@ -90,12 +115,10 @@
                             </div>
                             <div class="widget-content-left">&nbsp;&nbsp;&nbsp;
                                 <div class="btn-group" title="LOGOUT">
-                                    <!--                                    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#exampleModal">My Profile</button>-->
                                     <a style="background: transparent" href="logout"><i class="fas fa-sign-out-alt fa-lg"></i></a>
                                 </div>
                             </div>
                             <div class="widget-content-right header-user-info ml-3">
-
                             </div>
                         </div>
                     </div>
@@ -103,7 +126,6 @@
             </div>
         </div>
         </div>
-
         <div class="app-main">
             <div class="app-sidebar sidebar-shadow">
                 <div class="app-header__logo">
@@ -272,11 +294,19 @@
         </div>
     </div>
 
+    <!--    jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!--    popover.js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
-         <script type="text/javascript" src='{% static "payingGuest/js/jquery.min.js" %}'></script>
-    <script type="text/javascript" src='{% static "payingGuest/js/mainboot.js" %}'></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src='{% static "payingGuest/animations/js/aos.js" %}'></script>
-
+    <!--popover-->
+    <script>
+  $(document).ready(function(){
+  $("a").popover({html:true});
+});
+</script>
     <script>
         AOS.init({
         easing: 'ease-in-out',
@@ -284,7 +314,6 @@
         offset: 100
                    });
 </script>
-
     {% block script %}{% endblock %}
     </body>
 </html5>
